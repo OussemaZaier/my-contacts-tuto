@@ -2,14 +2,14 @@
 
 [![Node.js Logo](https://nodejs.org/static/images/logos/nodejs-new-pantone-black.svg)](https://nodejs.org/)
 
-Welcome to my Node.js learning journey! In order to learn Node.js, I followed a comprehensive YouTube tutorial provided by [Learn Node.js & Express](https://www.youtube.com/watch?v=H9M02of22z4&t=2018s). This tutorial was incredibly helpful in helping me grasp the fundamentals of Node.js and building practical applications.
+Welcome to my Node.js learning journey! In order to learn Node.js, I followed a comprehensive YouTube tutorial provided by [Dipesh Malvia](https://www.youtube.com/watch?v=H9M02of22z4&t=2018s). This tutorial was incredibly helpful in helping me grasp the fundamentals of Node.js and building practical applications.
 
 ## Tutorial Overview
 
 - **Tutorial Title:** [Learn Node.js & Express](https://www.youtube.com/watch?v=H9M02of22z4&t=2018s)
-- **Tutorial Duration:** Approximately [1h43min]
-- **Instructor:** [Dipesh Malvia]
-- **Tutorial Description:** [Brief description of the tutorial and its content]
+- **Tutorial Duration:** Approximately 1h43min
+- **Instructor:** [Dipesh Malvia]([https://www.youtube.com/watch?v=H9M02of22z4&t=2018s](https://github.com/dmalvia/))
+
   Feel free to explore the repository, check out the code, and provide any feedback or suggestions. I'm open to improvements and insights that can help me grow as a Node.js developer.
 
 ## How to Run the Project
