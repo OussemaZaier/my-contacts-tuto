@@ -1,7 +1,13 @@
 const express = require("express");
 const env = require("dotenv").config();
 
+const connectMongo = require("./config/connectMongo");
+
+const contactsRoutes = require("./routes/contactsRoutes");
+const usersRoutes = require("./routes/usersRoutes");
 const errorHandler = require("./middleware/errorHandler");
+
+connectMongo();
 
 const app = express();
 
