@@ -1,16 +1,16 @@
 const express = require("express");
 
 const {
-  getUsers,
-  createUser,
-  getUser,
-  updateUser,
-  deleteUser,
+  registerUser,
+  loginUser,
+  verifyUser,
 } = require("../controllers/userController");
+const validateToken = require("../middleware/validateToken");
 
 const router = express.Router();
 
-router.route("/").get(getUsers).post(createUser);
-router.route("/:id").get(getUser).put(updateUser).delete(deleteUser);
+router.post("/register", registerUser);
+router.post("/login", loginUser);
+router.post("/verify", validateToken, verifyUser);
 
 module.exports = router;

@@ -1,5 +1,6 @@
 const express = require("express");
 const env = require("dotenv").config();
+const all_routes = require("express-list-endpoints");
 
 const connectMongo = require("./config/connectMongo");
 
@@ -18,4 +19,6 @@ app.use("/api/users", usersRoutes);
 
 app.use(errorHandler);
 
-app.listen(process.env.PORT ?? 5000);
+app.listen(process.env.PORT ?? 5000, () => {
+  console.log(all_routes(app));
+});
