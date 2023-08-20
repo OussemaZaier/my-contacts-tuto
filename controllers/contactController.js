@@ -49,14 +49,47 @@ const getContact = asyncHandler(async (req, res) => {
     res.status(403);
     throw new Error("User don't have permission to read other user contacts");
   }
-  res.status(200).json(contact);
+  res.status(200).json({
+    status: "success",
+    message: "Data deleted successfuly",
+    data: contact,
+  });
 });
 
 //@desc Update contact
 //@path PUT /api/contacts/:id
 //@access Private
 const updateContact = asyncHandler(async (req, res) => {
-  res.send("GET all contacts");
+  const contact = await Contact.findById(req.params.id);
+  if (!contact) {
+    res.status(404);
+    throw new Error("Contact not found");
+  }
+  if (contact.user_id.toString() !== req.user._id) {
+    res.status(403);
+    throw new Error("User don't have permission to read other user contacts");
+  }
+  const { name, email, phone } = req.body;
+  if (!name || !email || !phone) {
+    res.status(400);
+    throw new Error("all fields are mandatory");
+  }
+  const newContact = await Contact.findByIdAndUpdate(
+    req.params.id,
+    {
+      name,
+      email,
+      phone,
+    },
+    {
+      new: true,
+    }
+  );
+  res.status(200).json({
+    status: "success",
+    message: "Data deleted successfuly",
+    data: newContact,
+  });
 });
 
 //@desc DELETE contact
@@ -68,7 +101,11 @@ const deleteContact = asyncHandler(async (req, res) => {
     res.status(404);
     throw new Error("contact not found");
   }
-  await Contact.remove();
+  if (contact.user_id.toString() !== req.user._id) {
+    res.status(403);
+    throw new Error("User don't have permission to read other user contacts");
+  }
+  await Contact.deleteOne({ _id: req.params.id });
   res.status(200).json({
     status: "success",
     message: "Data deleted successfuly",
