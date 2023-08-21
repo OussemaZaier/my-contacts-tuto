@@ -17,6 +17,11 @@ app.use(express.json());
 app.use("/api/contacts", contactsRoutes);
 app.use("/api/users", usersRoutes);
 
+app.use("*", (req, res, next) => {
+  res.status(404);
+  throw new Error("Route not found");
+});
+
 app.use(errorHandler);
 
 app.listen(process.env.PORT ?? 5000, () => {
