@@ -66,7 +66,11 @@ const loginUser = asyncHandler(async (req, res) => {
       process.env.ACCESS_TOKEN_SECERT,
       { expiresIn: "60min" }
     );
-    res.status(200).json({ token });
+    res.status(200).json({
+      status: "success",
+      message: "logged in successfuly",
+      data: token,
+    });
   } else {
     res.status(400);
     throw new Error("email or password are wrong");
